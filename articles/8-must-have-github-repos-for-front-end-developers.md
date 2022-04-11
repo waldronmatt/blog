@@ -89,7 +89,7 @@ No GitHub profile would be complete without your own personal website to show of
 
 The rest is up to you! Your personal portfolio is a great way to showcase your skills in a unique way.
 
-You can check out my [personal portfolio](https://github.com/waldronmatt/webpack-template) as an example that uses my [webpack template](https://github.com/waldronmatt/waldronmatthew.com) as a base. I use Netlify for hosting. Every time I make an update and deploy to my `main` branch, Netlify will run my build script and publish changes automatically.
+You can check out my [personal portfolio](https://github.com/waldronmatt/waldronmatthew.com) as an example that uses my [webpack template](https://github.com/waldronmatt/webpack-template) as a base. I use Netlify for hosting. Every time I make an update and deploy to my `main` branch, Netlify will run my build script and publish changes automatically.
 
 ## 7. The Resume Repository
 
