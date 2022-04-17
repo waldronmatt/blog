@@ -3,10 +3,15 @@ title: Tutorial - A Guide to Module Federation for Enterprise
 published: true
 description: A guide for supporting a fully dynamic, multi-environment Module Federation configuration
 tags: modulefederation, webpack, microfrontends, javascript
+series: Module Federation for Enterprise
 cover_image: https://miro.medium.com/max/1000/0*jcNZd6Gx5xtDjOoF.png
 ---
 
 # Tutorial - A Guide to Module Federation for Enterprise
+
+## Update: 4/17/2022
+
+See **[Part 2](https://dev.to/waldronmatt/module-federation-for-enterprise-part-2-men)** of my Module Federation for Enterprise series for **a much easier way** to implement a multi-environment setup than the approach described below.
 
 ## Update: 9/11/2021
 
