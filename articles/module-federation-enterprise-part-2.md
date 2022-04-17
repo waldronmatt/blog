@@ -350,6 +350,7 @@ Advantages:
 
 - `NormalModuleReplacementPlugin` helps reduce conditional logic over methods using `.env` files for setups with many environments
 - `NormalModuleReplacementPlugin` is built into the Webpack core library, so no reliance on third-party plugins
+- Can be easily integrated into your build pipeline
 - Project can be easily scaled to support multiple remotes and environments
 - Project setup is less complex than the original implementation I proposed in Part 1 of this blog series
 
