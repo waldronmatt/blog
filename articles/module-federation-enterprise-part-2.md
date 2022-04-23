@@ -175,35 +175,35 @@ import config from "../environments/TARGET_ENV";
 
 We'll add code to create the script tags. We resolve a promise if the script tag was successfully created after `onload`.
 
-The `module` parameter is the remote URL that will be passed in like this: `setRemoteScript(config['FormApp'])`. We're using the `config` from our environment import and the remote scope `FormApp` as a key/value pair to retrieve the corresponding URL from `environments/dev.js` file for development builds, etc.
+The `endpoint` parameter is the remote URL that will be passed in like this: `setRemoteScript(config['FormApp'])`. We're using the `config` from our environment import and the remote scope `FormApp` as a key/value pair to retrieve the corresponding URL from `environments/dev.js` file for development builds, etc.
 
 ```js
-const setRemoteScript = (module) =>
+const setRemoteScript = (endpoint) =>
   new Promise((resolve) => {
-    const remoteUrlWithVersion = `${module}/remoteEntry.js`;
+    const remoteUrlWithVersion = `${endpoint}/remoteEntry.js`;
     const script = document.createElement("script");
     script.src = remoteUrlWithVersion;
     document.head.appendChild(script);
     script.onload = () => resolve();
   }).catch((err) => {
-    console.log(err, `Error setting script tag for ${module}.`);
+    console.log(err, `Error setting script tag for ${endpoint}.`);
   });
 ```
 
-**Note**: If you have versioned remotes, you can substitute the `remoteUrlWithVersion` variable with the following code and modify to suit your needs:
+**Note**: If you have versioned remotes, you can substitute the `remoteUrlWithVersion` variable with the following code from the second example from the [Webpack docs](https://webpack.js.org/concepts/module-federation/#promise-based-dynamic-remotes) and modify to suit your needs:
 
 ```js
-const setRemoteScript = (module) =>
+const setRemoteScript = (endpoint) =>
   new Promise((resolve) => {
     const urlParams = new URLSearchParams(window.location.search);
     const version = urlParams.get("appVersionParam");
-    const remoteUrlWithVersion = `${module}${version}/remoteEntry.js`;
+    const remoteUrlWithVersion = `${endpoint}${version}/remoteEntry.js`;
     const script = document.createElement("script");
     script.src = remoteUrlWithVersion;
     document.head.appendChild(script);
     script.onload = () => resolve();
   }).catch((err) => {
-    console.log(err, `Error setting script tag for ${module}.`);
+    console.log(err, `Error setting script tag for ${endpoint}.`);
   });
 ```
 
@@ -263,15 +263,15 @@ Altogether our code should look like the following:
 ```js
 import config from "../environments/TARGET_ENV";
 
-const setRemoteScript = (module) =>
+const setRemoteScript = (endpoint) =>
   new Promise((resolve) => {
-    const remoteUrlWithVersion = `${module}/remoteEntry.js`;
+    const remoteUrlWithVersion = `${endpoint}/remoteEntry.js`;
     const script = document.createElement("script");
     script.src = remoteUrlWithVersion;
     document.head.appendChild(script);
     script.onload = () => resolve();
   }).catch((err) => {
-    console.log(err, `Error setting script tag for ${module}.`);
+    console.log(err, `Error setting script tag for ${endpoint}.`);
   });
 
 const loadComponent = (scope, module) => {
